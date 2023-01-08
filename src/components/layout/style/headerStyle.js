@@ -20,9 +20,23 @@ export const ControleInferior = styled.div`
     align-items: center;
     justify-content: center;
 `
+
+
+export const Logo = styled.div`
+   button{
+     background-color: transparent;
+     border: none;
+     margin-right: 40px;
+     cursor: pointer;
+     *{
+        font-size: 36px;
+        color: #191970;
+     }
+   }
+`
 export const ContButtonPesquisar = styled.div`
     background-color: #ffff;
-    height: 5vh;
+    height: 6vh;
     width: 50%;
     border-radius:20px;
     display: flex;
@@ -36,7 +50,7 @@ export const ContButtonPesquisar = styled.div`
         outline: none;
     }
     button{
-        height: 5vh;
+        height: 6vh;
         border: none;
         width: 15%;
         cursor: pointer;
@@ -97,8 +111,8 @@ export const Login =  styled.div`
 
         }
         div{
-            width: 5vh;
-            height: 5vh;
+            width: 4.8vh;
+            height: 4.8vh;
             background-color: #fff;
             border-radius:100px ;
             *{
@@ -106,5 +120,31 @@ export const Login =  styled.div`
                 color: 	#808080;
             }
         }
+   }
+`
+
+export const Favoritos = styled.div`
+   margin-left: 15px;
+   width: 6vh; 
+   height: 6vh;
+   background-color: #E12C04 ;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 50px;
+   button{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background-color: transparent;
+      height: 90%;
+      width: 90%;
+      border-radius: 50px;
+      cursor: pointer;
+      *{
+        color: #fff;
+        font-size: 18px;
+      }
    }
 `
