@@ -27,10 +27,13 @@ export const Logo = styled.div`
      background-color: transparent;
      border: none;
      margin-right: 40px;
-     cursor: pointer;
+     cursor: pointer; 
+     text-decoration: none;
+    
      *{
-        font-size: 36px;
-        color: #191970;
+        
+         font-size: 38px;
+        color: #fff;
      }
    }
 `

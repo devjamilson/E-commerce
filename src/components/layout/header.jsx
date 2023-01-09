@@ -42,7 +42,7 @@ export default function Header(){
                             <button>
                                 <Link to="/Login"><span>Login</span></Link>
                                 <div>
-                                <BsPersonCircle></BsPersonCircle>
+                                    <BsPersonCircle></BsPersonCircle>
                                 </div>
                             </button>
                         </Login>

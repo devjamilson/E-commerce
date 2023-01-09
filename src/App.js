@@ -1,5 +1,6 @@
-import { Conteudo } from "./components/home";
+import { Conteudo} from "./components/home";
 import Header from "./components/layout/header";
+import Footer from "./components/layout/footer";
 
 //Roteamento
 import Rotas from "./components/Rotas/homeRotas";
@@ -13,6 +14,7 @@ export default function App() {
           <Conteudo>
               <Rotas></Rotas>
           </Conteudo>
+          <Footer></Footer>
         </Router>
     </div>
   );
