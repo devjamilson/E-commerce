@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-   height: 170vh;
+   height: 400vh;
+   display: flex;
+   align-items: row;
+   width: 100%;
 `
 export const Conteudo = styled.div`
    
@@ -9,6 +12,7 @@ export const Conteudo = styled.div`
 `
 export const MenuCategorias = styled.ul`
   display: flex;
+  height: 60vh;
   flex-direction: column;
   margin-left: 30px;
   margin-top: 20px;
@@ -61,3 +65,33 @@ export const ItemCat = styled.li`
    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `
 
+export const TodosOsProdutos = styled.section`
+    margin-left: 20px;
+    margin-top: 20px;
+    display:grid;
+    grid-template-columns: 38% 38% 38% ;
+    grid-template-rows: 15% 15% 15% 15%;
+    gap: 4vh;
+`
+
+export const Produtos = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    width: 100%;
+    background-color: #FBFBFB;
+    padding:0;  
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    img{
+       height: 40vh;
+       width: 85%;
+       border-radius: 20px;
+    }
+    span{
+        font-size: 18px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: #fff;
+    }
+
+`
