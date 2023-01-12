@@ -1,10 +1,15 @@
 import React, {useState} from "react";
-import { Container, MenuCategorias, ItemCat, Produtos, TodosOsProdutos} from "./home";
-import {MdSmartphone, MdComputer, MdEventNote} from "react-icons/md"
-import {GiDesk, GiDress} from "react-icons/gi"
-import {BsSmartwatch, BsFillHandbagFill, BsListUl} from "react-icons/bs"
-import {FaTshirt} from "react-icons/fa"
 import axios from 'axios'
+
+
+//style
+import { Container, Produtos, TodosOsProdutos, ContImgProdutos, ContInfoProdutos} from "./home";
+
+//icones
+import {AiFillStar, AiOutlineStar} from "react-icons/ai"
+
+
+
 
 const api = axios.create({
     baseURL: 'http://localhost:8080'
@@ -20,29 +25,29 @@ export default function Home(){
 
     return(
         <Container>
-                <MenuCategorias>
-                    <span><BsListUl></BsListUl>Categorias</span>
-                    <button><ItemCat><MdSmartphone></MdSmartphone>Celular</ItemCat></button>
-                    <button><ItemCat><MdComputer></MdComputer>Computador</ItemCat></button>
-                    <button><ItemCat><MdEventNote></MdEventNote>Escritório</ItemCat></button>
-                    <button><ItemCat><GiDesk></GiDesk>Móveis</ItemCat></button>
-                    <button><ItemCat><GiDress></GiDress>Roupas Femininas</ItemCat></button>
-                    <button><ItemCat><FaTshirt></FaTshirt>Roupas Masculinas</ItemCat></button>
-                    <button><ItemCat><BsSmartwatch></BsSmartwatch>Acessários</ItemCat></button>
-                    <button><ItemCat><BsFillHandbagFill></BsFillHandbagFill>Bolsas</ItemCat></button>
-                </MenuCategorias>
                 <TodosOsProdutos>
-                
                         {dados.map(produto => 
                        <Produtos>
-                            <img src={produto.src}/>
-                            <h1>{produto.nome}</h1>
-                            <span>{produto.preco}</span>
+                            <ContImgProdutos>
+                                <img src={produto.src}/>
+                            </ContImgProdutos>
+                            <ContInfoProdutos>
+                                <h1>{produto.nome}</h1>
+                                <div>
+                                    <AiFillStar></AiFillStar>
+                                    <AiFillStar></AiFillStar>
+                                    <AiFillStar></AiFillStar>
+                                    <AiOutlineStar></AiOutlineStar>
+                                    <AiOutlineStar></AiOutlineStar>
+                                </div>
+                                <h2>{produto.preco}</h2>
+                            </ContInfoProdutos>
+                            
                         </Produtos>)}
                     
                 </TodosOsProdutos>
-             
             
+           
         </Container>
     )
 }

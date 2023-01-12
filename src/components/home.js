@@ -88,10 +88,40 @@ export const Produtos = styled.div`
        width: 85%;
        border-radius: 20px;
     }
-    span{
-        font-size: 18px;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        color: #fff;
+
+`
+
+export const ContImgProdutos = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2vh;
+    height: 42vh;
+`
+
+export const ContInfoProdutos = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-top: 2vh;
+    padding-left: 25px;
+    height: 18vh;
+    *{
+      margin: 0;
     }
 
+    h1{
+       font-size: 18px;
+       font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h2{
+      font-size: 24px;
+    }
+
+    div{
+      *{
+        color: #ebcc34;
+        font-size: 20px;
+      }
+    }
 `

@@ -3,7 +3,7 @@ import Header from "./components/layout/header";
 import Footer from "./components/layout/footer";
 
 //Roteamento
-import Rotas from "./components/Rotas/homeRotas";
+import Rotas from "./components/Rotas/rotas";
 import {BrowserRouter as Router} from "react-router-dom"
 
 export default function App() {
