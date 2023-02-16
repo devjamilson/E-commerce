@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {BiSearch} from "react-icons/bi"
 import {HiShoppingCart} from "react-icons/hi"
 import {BsPersonCircle} from "react-icons/bs"
@@ -16,8 +16,21 @@ import { MenuCategorias, ItemCat} from "../home";
 
 import { Link } from 'react-router-dom'
 
+import ModalLogin from '../Modal/modal'
+
 
 export default function Header(){
+
+    const [modalAberto, setModalAberto] = useState(false)
+
+    const abrirModal = () =>{
+        setModalAberto(true)
+    }
+
+    const fecharModal = () =>{
+        setModalAberto(false)
+    }
+
     return(
         <>
             <Container>
@@ -47,8 +60,8 @@ export default function Header(){
                         </Carrinho>
 
                         <Login>
-                            <button>
-                                <a href="/Login"><span>Login</span></a>
+                            <button onClick={abrirModal}>
+                                <Link href="/Login"><span>Login</span></Link>
                                 <div>
                                     <BsPersonCircle></BsPersonCircle>
                                 </div>
@@ -67,7 +80,9 @@ export default function Header(){
             </Container>
 
             <MenuCategorias>
-                    <span><BsListUl></BsListUl>Categorias</span>
+                    <span>
+                         <BsListUl></BsListUl>Categorias
+                    </span>
                     <Link to="/produtos/celulares"><button><ItemCat><MdSmartphone></MdSmartphone>Celulares</ItemCat></button></Link>
                     <Link to="/produtos/computadores"><button><ItemCat><MdComputer></MdComputer>Computadores</ItemCat></button></Link>
                     <Link to="/produtos/escritorio"><button><ItemCat><MdEventNote></MdEventNote>Escritório</ItemCat></button></Link>
@@ -76,8 +91,23 @@ export default function Header(){
                     <Link to="/produtos/roupasmasculinas"><button><ItemCat><FaTshirt></FaTshirt>Roupas Masculinas</ItemCat></button></Link>
                     <Link to="/produtos/acessorios"><button><ItemCat><BsSmartwatch></BsSmartwatch>Acessários</ItemCat></button></Link>
                     <Link to="/produtos/bolsas"><button><ItemCat><BsFillHandbagFill></BsFillHandbagFill>Bolsas</ItemCat></button></Link>
-                </MenuCategorias>
+            </MenuCategorias>
 
+            {/*<Window>
+                <ContainerLogin>
+                    <h1>Login</h1>
+                    <form >
+                        <Input type="text" placeholder="Infome o seu e-mail..." />
+                        <Input type="text"placeholder="Infome a sua senha..." />
+                        <BtnEntrar type="submit" >Entrar</BtnEntrar>
+                        <h2>ou</h2>
+                        <BtnCriar><Link to="/cadastrar">Criar</Link></BtnCriar>
+                    </form>
+                </ContainerLogin>
+            </Window>*/}
+ 
+            {modalAberto? <ModalLogin fecharModal={fecharModal}></ModalLogin> : null}
+            
         </>
     )
 }

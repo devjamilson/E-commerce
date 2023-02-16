@@ -123,6 +123,9 @@ export const Login =  styled.div`
                 color: 	#808080;
             }
         }
+        a{
+            text-decoration: none;
+        }
    }
 `
 

@@ -12,7 +12,7 @@ export const Conteudo = styled.div`
 `
 export const MenuCategorias = styled.ul`
   display: flex;
-  height: 60vh;
+  height: 61.5vh;
   flex-direction: column;
   margin-left: 30px;
   margin-top: 20px;
@@ -54,6 +54,9 @@ export const MenuCategorias = styled.ul`
       color: #5b5b5b;
       margin-right: 15px;
     }
+  }
+  a{
+    text-decoration: none;
   }
 `
 

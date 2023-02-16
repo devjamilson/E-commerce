@@ -19,7 +19,6 @@ export default function Home(){
     const [dados, setDados] = useState([])
     
     api.get('/api/v1/produtos').then((response)=>{
-       
         setDados(response.data)
     })
 

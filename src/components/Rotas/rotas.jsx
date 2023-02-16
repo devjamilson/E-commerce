@@ -11,10 +11,10 @@ export default function Rotas(){
         <>
             <Routes>
                 <Route exact path="/" element={<Home/>}/>
-                <Route path="/Login" element = { <Login/> } />
                 <Route path="/Carrinho" element = { <Login/> }   />
                 <Route path="/Favoritos" element = { <Login/> }   />
-                <Route path="/Cadastrar" element = { <Cadastrar/> }   />
+                
+                <Route path="/Produtos" element = { <Home/> }   />
             </Routes>
         </>
     )
