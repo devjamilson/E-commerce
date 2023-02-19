@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {BiSearch} from "react-icons/bi"
 import {HiShoppingCart} from "react-icons/hi"
 import {BsPersonCircle} from "react-icons/bs"
@@ -15,13 +15,16 @@ import {FaTshirt} from "react-icons/fa"
 import { MenuCategorias, ItemCat} from "../home";
 
 import { Link } from 'react-router-dom'
-
 import ModalLogin from '../Modal/modal'
 
 
-export default function Header(){
 
+import { UserContext } from '../../context/userContext'
+
+export default function Header(){
     const [modalAberto, setModalAberto] = useState(false)
+
+    const [Logado, setLogado] = useContext(UserContext)
 
     const abrirModal = () =>{
         setModalAberto(true)
@@ -60,13 +63,19 @@ export default function Header(){
                         </Carrinho>
 
                         <Login>
-                            <button onClick={abrirModal}>
+                            {Logado.Logado ?<button>
+                                <Link href="/Login"><span>Sair</span></Link>
+                                <div>
+                                    <BsPersonCircle></BsPersonCircle>
+                                </div>
+                            </button> : <button onClick={abrirModal}>
                                 <Link href="/Login"><span>Login</span></Link>
                                 <div>
                                     <BsPersonCircle></BsPersonCircle>
                                 </div>
                             </button>
-                        </Login>
+                         }
+                         </Login>   
                         <Favoritos>
                             <Link to="/Favoritos">
                                 <button>
@@ -107,7 +116,7 @@ export default function Header(){
             </Window>*/}
  
             {modalAberto? <ModalLogin fecharModal={fecharModal}></ModalLogin> : null}
-            
         </>
+       
     )
 }

@@ -1,22 +1,45 @@
-import React, {useState} from "react";
-import axios from 'axios'
+import React, {useState, useContext} from "react";
+
 
 import { ContainerLogin, Input, BtnCriar, BtnEntrar, Window} from "./style/login";
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
+import api from "../service/Api";
+
+import { UserContext } from '../../context/userContext'
 
 export default function Login({setCadastroForm, fecharModal}){
+    const [userData, setUserData] = useContext(UserContext)
+
+    console.log(userData)
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-  
 
-    const sendLogin = (e) => {
-       e.preventDefault()
-       let data = {
-            email: email,
-            password: password,
-       }
-       console.log(data.email +" " + data.password)
-    };
+    const history = useNavigate()
+
+    async function loginHandler(e) {
+        e.preventDefault()
+        try {
+            const userData = await api.get('users', {
+                email,
+                password
+            })
+
+            const userInfo = userData.data            
+
+            setUserData(prevState => ({
+                ...prevState, 
+                isLogged: true,
+                email: userInfo.email,
+                name: userInfo.name,  
+                _id: userInfo._id          
+            }))
+         
+            history.push('/admin')
+        } catch(err) {
+            alert('Falha no login, tente novamente')
+        }
+    }
+
     return(
         <Window>
           <ContainerLogin>
@@ -24,7 +47,7 @@ export default function Login({setCadastroForm, fecharModal}){
               <button onClick={fecharModal}>X</button>
             </div>
             <h1>Login</h1>
-            <form onSubmit={sendLogin}>
+            <form onSubmit={loginHandler}>
                 <Input type="text" placeholder="Infome o seu e-mail..." onChange = {(event) =>{setEmail(event.target.value);}} />
                 <Input type="text"placeholder="Infome a sua senha..." onChange = {(event) =>{setPassword(event.target.value);}}/>
                 <BtnEntrar type="submit" >Entrar</BtnEntrar>

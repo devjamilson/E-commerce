@@ -1,21 +1,22 @@
+import React, {useState} from "react";
 import { Conteudo} from "./components/home";
-import Header from "./components/layout/header";
-import Footer from "./components/layout/footer";
 
 //Roteamento
 import Rotas from "./components/Rotas/rotas";
 import {BrowserRouter as Router} from "react-router-dom"
 
+import UserProvider, { UserContext } from './context/userContext'
 export default function App() {
   return (
     <div className="App">
-       <Router>
-          <Header></Header>
+      <UserProvider>
+        <Router>
           <Conteudo>
               <Rotas></Rotas>
           </Conteudo>
-          <Footer></Footer>
         </Router>
+      </UserProvider>
+       
     </div>
   );
 }

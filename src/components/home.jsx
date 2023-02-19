@@ -7,7 +7,8 @@ import { Container, Produtos, TodosOsProdutos, ContImgProdutos, ContInfoProdutos
 
 //icones
 import {AiFillStar, AiOutlineStar} from "react-icons/ai"
-
+import Header from '../components/layout/header'
+import Footer from '../components/layout/footer'
 
 
 
@@ -18,11 +19,13 @@ const api = axios.create({
 export default function Home(){
     const [dados, setDados] = useState([])
     
-    api.get('/api/v1/produtos').then((response)=>{
+    api.get('/produtos').then((response)=>{
         setDados(response.data)
     })
 
     return(
+        <>
+        <Header></Header>
         <Container>
                 <TodosOsProdutos>
                         {dados.map(produto => 
@@ -41,12 +44,10 @@ export default function Home(){
                                 </div>
                                 <h2>{produto.preco}</h2>
                             </ContInfoProdutos>
-                            
                         </Produtos>)}
-                    
                 </TodosOsProdutos>
-            
-           
         </Container>
+        <Footer></Footer>
+        </>
     )
 }
